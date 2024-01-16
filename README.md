@@ -29,15 +29,17 @@ Adjust the URL and request body as needed.
 
 ## Command-Line Arguments
 
-Usage of ./http-bulk-receiver:
+View full usage with `./http-bulk-receiver -help`.
+
+```
   -path string
         Path for logging requests (default "/log")
   -port string
         Port number for the server (default "8080")
   -sleep int
         Sleep duration in milliseconds before responding with 200 OK
-
-The `-sleep` setting is useful for locally testing throughput when the round-trip time to an actual service would be significant.
+```
+The `-sleep` setting is useful for testing throughput when the response-time or round-trip time to a remote service is significant.
 
 # Docker Desktop
 
