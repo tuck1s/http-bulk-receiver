@@ -4,21 +4,10 @@ This is a simple Go web service that listens for POST requests on a specified po
 
 ## Usage
 
-Clone the repository:
-```bash
-git clone https://github.com/yourusername/golang-web-service.git
-```
-
-Navigate to the project directory:
+Clone the repository and go to the project directory. Run the server:
 
 ```bash
-cd golang-web-service
-```
-
-Run the server:
-
-```bash
-go run main.go -port 8080
+go run http-bulk-rx.go -port 8080
 ```
 
 Replace `8080` with your desired port number.
@@ -44,6 +33,6 @@ Adjust the URL and request body as needed.
 ## Example
 
 ```bash
-go run main.go -port 8080
+go run http-bulk-rx.go -port 8080
 ```
 
