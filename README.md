@@ -7,7 +7,7 @@ This is a simple Go web service that listens for POST requests on a specified po
 Clone the repository and go to the project directory. Run the server:
 
 ```bash
-go run http-bulk-rx.go -port 8080
+go run http-bulk-receiver.go -port 8080
 ```
 
 Replace `8080` with your desired port number.
@@ -28,11 +28,22 @@ Adjust the URL and request body as needed.
 
 ## Command-Line Arguments
 
-- `-port`: Specifies the port number for the server. Default is `8080`.
+Usage of ./http-bulk-receiver:
+  -path string
+        Path for logging requests (default "/log")
+  -port string
+        Port number for the server (default "8080")
+  -sleep int
+        Sleep duration in milliseconds before responding with 200 OK
 
-## Example
+# Docker
+
+You can run this under Docker Desktop. This is most easily done using VS Code with the Dev Containers extension.
+Once the container has started, open a new terminal session. Build the binary then run it:
 
 ```bash
-go run http-bulk-rx.go -port 8080
+go build
+./http-bulk-receiver -port 8080
 ```
 
+To send messages from another container to this one, you can discover your container's IP address using `ifconfig`. This is usually in the range `172.17.x.x`.
