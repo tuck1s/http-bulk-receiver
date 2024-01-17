@@ -1,3 +1,4 @@
 request_*.log
 __debug*
 http-bulk-receiver
+request*.json
