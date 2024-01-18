@@ -24,6 +24,7 @@ Adjust the URL and request body as needed.
 
 - Listens for POST requests on a specified port.
 - Logs each request to a separate file with a timestamp in the filename.
+- Checks received payload is JSON and reports on contents.
 - Can simulate server round-trip time (slow responses).
 - Prints brief information about each incoming request to the standard output.
 
@@ -32,12 +33,15 @@ Adjust the URL and request body as needed.
 View full usage with `./http-bulk-receiver -help`.
 
 ```
+Usage of ./http-bulk-receiver:
   -path string
         Path for logging requests (default "/log")
   -port string
         Port number for the server (default "8080")
   -sleep int
         Sleep duration in milliseconds before responding with 200 OK
+  -store
+        Store files
 ```
 The `-sleep` setting is useful for testing throughput when the response-time or round-trip time to a remote service is significant.
 
