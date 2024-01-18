@@ -15,6 +15,8 @@ func main() {
 	port := flag.String("port", "8080", "Port number for the server")
 	path := flag.String("path", "/log", "Path for logging requests")
 	sleepDuration := flag.Int("sleep", 0, "Sleep duration in milliseconds before responding with 200 OK")
+	storeFlag := flag.Bool("store", false, "Store files")
+
 	flag.Parse()
 
 	log.SetOutput(os.Stdout)
@@ -31,11 +33,13 @@ func main() {
 			http.Error(w, "Error reading request body", http.StatusInternalServerError)
 			return
 		}
-		// Log the request to a file with a timestamp in the filename
-		err = storeRequestBody(body)
-		if err != nil {
-			http.Error(w, "Error logging request", http.StatusInternalServerError)
-			return
+		if *storeFlag {
+			// Log the request to a file with a timestamp in the filename
+			err = storeRequestBody(body)
+			if err != nil {
+				http.Error(w, "Error logging request", http.StatusInternalServerError)
+				return
+			}
 		}
 
 		var requestBody interface{}
